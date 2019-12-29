@@ -10,6 +10,7 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
-      - "/share/Freesitch/config:/config"
+      - "/share/Freeswitch/config:/config"
+      - "/share/Freeswitch/data:/data"
     environment:
       TZ: "Europe/Amsterdam"
