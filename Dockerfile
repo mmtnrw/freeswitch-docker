@@ -13,13 +13,16 @@ echo "**** Linking Config ****" &&\
 rm -rf /etc/freeswitch && \
 ln -s /config /etc/freeswitch && \
 rm -rf /var/lib/freeswitch && \
-ln -s /data /var/lib/freeswitch
+ln -s /data /var/lib/freeswitch && \
+rm -rf /usr/share/freeswitch/sounds && \
+ln -s /sounds /usr/share/freeswitch/sounds
+
 
 
 COPY root/ /root/
 RUN chmod +x /root/start.sh
 
 # ports and volumes
-VOLUME /config /data
+VOLUME /config /data /sounds
 
 CMD ["/root/start.sh"]
