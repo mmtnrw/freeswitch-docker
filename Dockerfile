@@ -16,4 +16,4 @@ ln -s /config /etc/freeswitch
 # ports and volumes
 VOLUME /config
 
-CMD ["/usr/bin/freeswitch -nc"]
+CMD ["/usr/bin/freeswitch", "-nc"]
