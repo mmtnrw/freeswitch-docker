@@ -6,7 +6,7 @@ ARG VERSION
 
 RUN \
 echo "**** Installing Packages ****" && \
-apk add --no-cache nano freeswitch lua sqlite lua-sqlite lua-dbi-sqlite
+apk add --no-cache nano freeswitch lua sqlite lua-sqlite
 
 RUN \
 echo "**** Linking Config ****" &&\
