@@ -1,0 +1,15 @@
+version: '2.2'
+
+services:
+  freeswitch:
+    image: "mmtnrw/freeswitch"
+    restart: always
+    network_mode: host
+    privileged: true
+    tty: true
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/share/Freesitch/config:/config"
+    environment:
+      TZ: "Europe/Amsterdam"
