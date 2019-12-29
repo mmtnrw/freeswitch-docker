@@ -12,5 +12,6 @@ services:
       - "/etc/timezone:/etc/timezone:ro"
       - "/share/Freeswitch/config:/config"
       - "/share/Freeswitch/data:/data"
+      - "/share/Freeswitch/sounds:/sounds"
     environment:
       TZ: "Europe/Amsterdam"
