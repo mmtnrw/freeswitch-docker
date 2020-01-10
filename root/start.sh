@@ -32,6 +32,8 @@ echo "Starting Freeswitch Daemon"
 chown -R $PUID:$PGID /data
 chown -R $PUID:$PGID /config
 chown -R $PUID:$PGID /etc/freeswitch
+chown -R $PUID:$PGID /var/lib/freeswitch
+chown -R $PUID:$PGID /usr/share/freeswitch
 touch /var/run/freeswitch/freeswitch.pid
 chown $PUID:$PGID /var/run/freeswitch/freeswitch.pid
 $RUN /usr/bin/freeswitch -nf
