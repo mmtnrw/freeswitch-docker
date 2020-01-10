@@ -31,6 +31,7 @@ ntpd -d -q -n -p time.cloudflare.com &> /dev/null
 echo "Starting Freeswitch Daemon"
 chown -R $PUID:$PGID /data
 chown -R $PUID:$PGID /config
+chown -R $PUID:$PGID /etc/freeswitch
 touch /var/run/freeswitch/freeswitch.pid
 chown $PUID:$PGID /var/run/freeswitch/freeswitch.pid
 $RUN /usr/bin/freeswitch -nf
