@@ -3,6 +3,11 @@ version: '2.2'
 services:
   freeswitch:
     image: "mmtnrw/freeswitch"
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: "10m"
     restart: always
     network_mode: host
     privileged: true
