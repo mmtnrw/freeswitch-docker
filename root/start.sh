@@ -28,6 +28,23 @@ echo $TZ > /etc/timezone
 echo "[info] Syncing Time...."
 ntpd -d -q -n -p time.cloudflare.com &> /dev/null
 
+echo "[info] Setting up msmtp"
+if [ ! -z "$MAIL_SERVER" ]; then
+	sed -i "s/^host.*$/host $MAIL_SERVER/g" /etc/msmtprc
+fi
+if [ ! -z "$MAIL_SERVER_PORT" ]; then
+	sed -i "s/^port.*$/port $MAIL_SERVER_PORT/g" /etc/msmtprc
+fi
+if [ ! -z "$MAIL_FROM" ]; then
+	sed -i "s/^from.*$/hfromost $MAIL_FROM/g" /etc/msmtprc
+fi
+if [ ! -z "$MAIL_USER" ]; then
+	sed -i "s/^user.*$/user $MAIL_USER/g" /etc/msmtprc
+fi
+if [ ! -z "$MAIL_PASSWORD" ]; then
+	sed -i "s/^password.*$/password $MAIL_PASSWORD/g" /etc/msmtprc
+fi
+
 echo "Starting Freeswitch Daemon"
 chown -R $PUID:$PGID /data
 chown -R $PUID:$PGID /config
