@@ -6,7 +6,7 @@ ARG VERSION
 
 RUN \
 echo "**** Installing Packages ****" && \
-apk add --no-cache nano freeswitch lua sqlite lua-sqlite tiff-tools util-linux s6
+apk add --no-cache nano freeswitch lua sqlite lua-sqlite tiff-tools util-linux s6 msmtp openssl
 
 RUN \
 echo "**** Linking Config ****" &&\
@@ -17,12 +17,14 @@ ln -s /data /var/lib/freeswitch && \
 rm -rf /usr/share/freeswitch/sounds && \
 ln -s /sounds /usr/share/freeswitch/sounds
 
+ADD ./root/start.sh /start.sh
+ADD ./etc/msmtprc /etc/msmtprc
 
+RUN touch /etc/aliases
 
-COPY root/ /root/
 RUN chmod +x /root/start.sh
 
 # ports and volumes
 VOLUME /config /data /sounds
 
-CMD ["/root/start.sh"]
+CMD ["/start.sh"]
