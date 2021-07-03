@@ -36,7 +36,7 @@ if [ ! -z "$MAIL_SERVER_PORT" ]; then
 	sed -i "s/^port.*$/port $MAIL_SERVER_PORT/g" /etc/msmtprc
 fi
 if [ ! -z "$MAIL_FROM" ]; then
-	sed -i "s/^from.*$/hfromost $MAIL_FROM/g" /etc/msmtprc
+	sed -i "s/^from.*$/from $MAIL_FROM/g" /etc/msmtprc
 fi
 if [ ! -z "$MAIL_USER" ]; then
 	sed -i "s/^user.*$/user $MAIL_USER/g" /etc/msmtprc
