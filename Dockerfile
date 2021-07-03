@@ -22,7 +22,7 @@ ADD ./etc/msmtprc /etc/msmtprc
 
 RUN touch /etc/aliases
 
-RUN chmod +x /root/start.sh
+RUN chmod +x /start.sh
 
 # ports and volumes
 VOLUME /config /data /sounds
